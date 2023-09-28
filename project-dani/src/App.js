@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import SitePlan from './site_plan';
+/* import SitePlan from './site_plan'; */
+import TopNav from './components/TopNav/TopNav';
 
 function App() {
   return (
     <div className="App">
-      <SitePlan/>
+      <TopNav />
+      {/* <SitePlan/> */}
     </div>
   );
 }
