@@ -30,7 +30,7 @@ const SitePlan=()=>{
                     Color Palette
                 </h3>
                 
-                <p>Palette URL: <a href="#" target="_blank">To do</a></p>
+                <p>Palette URL: <a href="https://coolors.co/user/palettes/6511d05f83817a000bf9aa98" target="_blank">https://coolors.co/user/palettes/6511d05f83817a000bf9aa98</a></p>
 
 
                 <table class="colors">
