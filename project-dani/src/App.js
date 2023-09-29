@@ -3,10 +3,12 @@ import './App.css';
 /* import SitePlan from './site_plan'; */
 import TopNav from './components/TopNav/TopNav';
 
+
 function App() {
   return (
     <div className="App">
-      <TopNav />
+      {/* <div class="fh5co-loader"></div> */}
+          <TopNav />      
       {/* <SitePlan/> */}
     </div>
   );
