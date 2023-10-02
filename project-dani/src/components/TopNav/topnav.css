@@ -216,6 +216,10 @@ a:hover, a:active, a:focus {
 .fh5co-nav ul li.has-dropdown .dropdown li a:hover {
   color: #fff;
 }
+
+#register{
+  margin-left: 30%;
+}
 .fh5co-nav ul li.has-dropdown:hover a, .fh5co-nav ul li.has-dropdown:focus a {
   color: #000;
 }
@@ -399,4 +403,6 @@ a:hover, a:active, a:focus {
 .row-pb-sm {
   padding-bottom: 2em !important;
 }
+
+
   
