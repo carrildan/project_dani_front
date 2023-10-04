@@ -1,0 +1,32 @@
+{
+  "userBase": [
+    {
+      "id": 2,
+      "name": "Daniel",
+      "mail": "daniel@mail.com",
+      "phoneNumber": "604000012",
+      "linkedin": "www.linkdin.com/Domingos",
+      "github": null,
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://localhost:8001/userbase/3"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Domingos",
+      "mail": "Domingos@mail.com",
+      "phoneNumber": "604000012",
+      "linkedin": "www.linkdin.com/Domingos",
+      "github": null,
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://localhost:8001/userbase/3"
+        }
+      ]
+    }
+  ]
+}
