@@ -4,22 +4,20 @@ import {Table, Button} from "react-bootstrap";
 
 function Register(){    
     const [data,setData] = useState(null);
-
-   
-        useEffect(()=>{
-            fetch("http://localhost:3000/userBase/")
-            .then((response)=>response.json())
-            .then((data)=> setData(data))
-        },2000)
-      
     
+    useEffect(()=>{
+        getUser();
+    },2000)
+      
+    const getUser=()=>{
+        fetch("http://localhost:3000/userBase/")
+        .then((response)=>response.json())
+        .then((data)=> setData(data))
+    }
+
     const deleteUser=(id)=>{
-        fetch("http://localhost:8001/userbase/"+id, { method : "DELETE"})
-        .then((response)=>{
-            if(response.ok){
-               
-            }
-        })
+        fetch("http://localhost:3000/userBase/"+id, { method : "DELETE"})
+        getUser();
     }
                 
     return( 
