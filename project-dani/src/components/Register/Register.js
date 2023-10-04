@@ -1,23 +1,20 @@
 import { useEffect, useState } from "react";
 import {Table, Button} from "react-bootstrap";
-import FetchUser from "../customHoolks/fetchUser";
-import DeleteUser from "../customHoolks/deleteUser";
+
 
 function Register(){    
     const [data,setData] = useState(null);
 
    
         useEffect(()=>{
-            fetch("http://localhost:3000/userBase")
+            fetch("http://localhost:3000/userBase/")
             .then((response)=>response.json())
             .then((data)=> setData(data))
         },2000)
       
     
-    
-
     const deleteUser=(id)=>{
-        fetch("http://localhost:3000/userBase/"+id, { method : "DELETE"})
+        fetch("http://localhost:8001/userbase/"+id, { method : "DELETE"})
         .then((response)=>{
             if(response.ok){
                
