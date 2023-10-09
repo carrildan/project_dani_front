@@ -1,27 +1,29 @@
 import { useEffect, useState } from "react";
 import {Table, Button} from "react-bootstrap";
 import "./register.css";
+import useGetUser from "../customHooks/useGetUser";
+import useDeleteUser from "../customHooks/useDeleteUser";
 
 
 function Register(){    
-    const [data,setData] = useState(null);
-      
-    const getUser=()=>{
-        fetch("http://localhost:3000/userBase/")
-        .then((response)=>response.json())
-        .then((data)=> setData(data))
+   const [getUserData] = useGetUser("http://localhost:3000/userBase/")
+   const [data,setData] = useState(null);
+   const [delData,setDelData] = useState(null)
+   const [deleteUser] = useDeleteUser(delData) 
+   
+    const userHandler=()=>{
+        setData(getUserData)
     }
 
-    const deleteUser=(id)=>{
-        fetch("http://localhost:3000/userBase/"+id, { method : "DELETE"})
-        getUser();
+    const deleteHandler=(id)=>{
+        deleteUser(id)   
     }
-                
+    
     return( 
         <div>
             <div className="button-group">
                 <Button variant="primary" className="btn">Add</Button>
-                <Button variant="primary" className="btn" onClick={()=>getUser()}>Users</Button>
+                <Button variant="primary" className="btn" onClick={()=>userHandler()}>Users</Button>
             </div>
             <Table striped bordered hover>
                 <thead>
@@ -39,11 +41,12 @@ function Register(){
                                 <tr>
                                     <td>{user.name}</td>
                                     <td>{user.mail}</td>
-                                    <td>Update <Button variant="danger" onClick={()=>deleteUser(user.id)}>Delete</Button></td>
+                                    <td>Update <Button variant="danger" onClick={()=>deleteHandler(user.id)}>Delete</Button></td>
                                 </tr>
                             )
                         })
                     }
+                   
                 </tbody>
             </Table>
         </div>
