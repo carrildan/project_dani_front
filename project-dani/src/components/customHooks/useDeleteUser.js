@@ -13,7 +13,7 @@ function useDeleteUser(){
             setData(`Failed to delete user with ID ${id}.`);
           }
       } catch (error) {
-        console.error("Daniel, Error deleting user:", error);
+        console.error("Error deleting user:", error);
         setData(`An error occurred while deleting user with ID ${id}.`);
       }
     };
