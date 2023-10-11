@@ -7,22 +7,22 @@ const TopNav=()=>{
     return(
         <div>
 
-            <div class="fh5co-loader"></div>
+            <div className="fh5co-loader"></div>
             <div id="page">
-                <nav class="fh5co-nav" role="navigation">
-                    <div class="container-wrap">
-                        <div class="top-menu">
-                            <div class="row">
-                                <div class="col-xs-2">
+                <nav className="fh5co-nav" role="navigation">
+                    <div className="container-wrap">
+                        <div className="top-menu">
+                            <div className="row">
+                                <div className="col-xs-2">
                                     <div id="fh5co-logo"><a href="#">PROJECT DANI</a></div>
                                 </div>
-                                <div class="col-xs-10 text-right menu-1">
+                                <div className="col-xs-10 text-right menu-1">
                                     <ul>
-                                        <li class="active"><Link to="#">Home</Link></li>
+                                        <li className="active"><Link to="#">Home</Link></li>
                                         <li><a href="#">Work</a></li>
-                                        <li class="has-dropdown">
+                                        <li className="has-dropdown">
                                             <a href="#">Blog</a>
-                                            <ul class="dropdown">
+                                            <ul className="dropdown">
                                                 <li><a href="#">Web Design</a></li>
                                                 <li><a href="#">eCommerce</a></li>
                                                 <li><a href="#">Branding</a></li>
