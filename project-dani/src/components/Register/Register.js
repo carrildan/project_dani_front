@@ -11,6 +11,14 @@ function Register(){
    const [data,setData] = useState(null);
    const [delData,setDelData] = useState(null)
    const [deleteUser] = useDeleteUser(delData) 
+   const [newUser,setNewUser] = useState({
+        name: "",
+        mail: "",
+        phone: "",
+        linkedin: "",
+        github: "",
+        users: []
+   })
    
    
     const userHandler=()=>{
