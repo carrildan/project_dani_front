@@ -106,6 +106,7 @@ function Register(){
 
     /* post (update) method */
     const retainUserHandler=(id)=>{
+        openModal();
         fetch("http://localhost:3000/userBase/"+id, { method : "GET"})
             .then(response=> response.json())
             .then(data =>{
