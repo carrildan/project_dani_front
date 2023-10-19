@@ -74,8 +74,13 @@ const SitePlan=()=>{
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                     
-                    <li><a href="#">Student</a></li>
-                    <li><a href="#">Company</a></li>
+                    <li><a href="#">Register</a>
+                        <li><a href="#">Company</a></li>
+                        <li><a href="#">Student</a></li>
+                    </li>
+                    
+                    
+                    
                     </ul></nav>
                 <hr/>
             

@@ -1,6 +1,6 @@
 import './App.css';
 /* import SitePlan from './site_plan'; */
-import TopNav from './components/TopNav/TopNav';
+import TopNav from './components/UI/TopNav/TopNav';
 
 
 function App() {

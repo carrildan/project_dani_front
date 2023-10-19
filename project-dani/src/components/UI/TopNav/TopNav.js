@@ -1,6 +1,7 @@
 import Register from "../Register/Register";
 import "./topnav.css";
 import { Routes, Route, Link } from "react-router-dom";
+import Test from "../Register/test";
 
 
 const TopNav=()=>{
@@ -32,6 +33,7 @@ const TopNav=()=>{
                                         <li><a href="#">About</a></li>
                                         <li><a href="#">Contact</a></li>
                                         <li id="register"><Link to="/register">Register</Link></li>
+                                        <li id="test"><Link to="/test">Test</Link></li>
                                     </ul>
                                     
                                 </div>
@@ -43,6 +45,7 @@ const TopNav=()=>{
 
             <Routes>
                 <Route path="/register" element={<Register />}/>
+                <Route path="/test" element={<Test />}/>
             </Routes>
         </div>
     )
