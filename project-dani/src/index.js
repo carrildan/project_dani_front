@@ -7,12 +7,16 @@ import { BrowserRouter } from 'react-router-dom';
 
 /* bootstrap components styling. I am using it for tables in Register.js */
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { UserProvider } from './components/LOGIC/store/Provider/userProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    {/* provide User context global data available to all app components */}
+    <UserProvider>
       <App />
+    </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
