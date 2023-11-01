@@ -13,10 +13,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    {/* provide User context global data available to all app components */}
-    <UserProvider>
       <App />
-    </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
