@@ -14,11 +14,6 @@ const UserTable = () => {
         setShowForm(!showForm)
     }
 
-    /* this method handles the closing of the modal after user closed modal CLOSE button (inside userForm.js) */
-    const closeFormHandler=()=>{
-        setShowForm(false);
-    }
-
     return(
         <div>
             
@@ -49,7 +44,7 @@ const UserTable = () => {
             </Table>  
             {
                 /* when user clicks on CLOSE button inside userForm.js, props sets false to UserTable.js too */
-                [ showForm ? <UserForm value={showForm} onClose={closeFormHandler} /> : null ] 
+                [ showForm ? <UserForm value={showForm} onClose={()=>setShowForm(false)} /> : null ] 
             }
         </div>
     )
