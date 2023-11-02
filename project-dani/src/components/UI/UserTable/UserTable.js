@@ -1,18 +1,31 @@
 import React, { useState, useEffect, useContext } from 'react';
 import  UserListContext  from "../../LOGIC/store/Context/userListContext";
 import {Table, Button} from "react-bootstrap";
+import UserForm from '../Forms/userForm/userForm';
 
 //this component render user list and its options (show,add new,update and delete)
 const UserTable = () => {
+    /* this state handles the show/hide of the user modal */
+    const [showForm, setShowForm] = useState(false)
     const user = useContext(UserListContext)
-    
+
+    /* this method toggles the modal */
+    const UpdateHandler=(id)=>{
+        setShowForm(!showForm)
+    }
+
+    /* this method handles the closing of the modal after user closed modal CLOSE button (inside userForm.js) */
+    const closeFormHandler=()=>{
+        setShowForm(false);
+    }
+
     return(
         <div>
-            <div>List of Users</div>
+            
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th data-testid="name">Name</th>
+                        <th>Name</th>
                         <th>Email</th>
                         <th>Options</th>
                     </tr>
@@ -23,10 +36,10 @@ const UserTable = () => {
                         user.map((users)=>{
                             return(
                                 <tr key={users.id}>
-                                    <td>{users.name}</td>
+                                    <td data-testid="name">{users.name}</td>
                                     <td>{users.mail}</td>
                                     <td>
-                                        <Button variant="primary" /* onClick={()=>retainUserHandler(user.id)} */>Update</Button>
+                                        <Button variant="primary" onClick={()=>UpdateHandler(users.id)}>Update</Button>
                                         <Button variant="danger" /* onClick={()=>deleteHandler(user.id)} */>Delete</Button></td>
                                 </tr>
                             )
@@ -34,10 +47,13 @@ const UserTable = () => {
                     }
                 </tbody>
             </Table>  
+            {
+                /* when user clicks on CLOSE button inside userForm.js, props sets false to UserTable.js too */
+                [ showForm ? <UserForm value={showForm} onClose={closeFormHandler} /> : null ] 
+            }
         </div>
     )
 }
 
   
-
 export default UserTable;
