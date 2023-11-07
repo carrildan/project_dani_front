@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 
 const UserForm = (props)=>{
+    //toggles the close button on the form
     const [showModal, setShowModal] = useState(props);
     console.log(showModal,"user form")
 
@@ -49,9 +50,12 @@ const UserForm = (props)=>{
 
                 <Modal.Footer>
                     <Button variant="secondary" onClick={()=>{
-                        setShowModal(false);
-                        props.onClose();
-                    }}>Close</Button>
+                            //set modal off when click on close button. Also informs UserTable the form is closed, otherwise it would still sing as open 
+                            setShowModal(false);
+                            props.onClose();
+                        }}>Close
+                    </Button>
+
                     <Button variant="primary" /* onClick={closeModal} */>Save changes</Button>
                 </Modal.Footer>
             </Modal>
