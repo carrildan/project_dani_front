@@ -6,7 +6,7 @@ import { UserFetchService } from '../../Modules/services/userFetchService.js';
 export function UserProvider({children}){
   const [user, setUser] = useState([])
   
-  /* handle the async process of userOperations() */
+  /* handle the async process of userFetchService */
   useEffect(()=>{
     const fetchData = async () =>{
       const data = await UserFetchService.GetAll();
