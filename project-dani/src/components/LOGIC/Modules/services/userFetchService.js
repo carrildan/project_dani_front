@@ -1,48 +1,54 @@
-//this service module fetches the user crud operations
-export const UserFetchService = {
-  //return all user data
-  GetAll: async ()=>{
-   
-      try {
-        const response = await fetch("http://localhost:3000/userBase/");
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        return data;
-        
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-        return null; // Handle the error or return an appropriate value
-      }
-  },
+import React,{ useState } from "react";
 
-  //return user data by id
-  GetById: async (id)=>{
+//this service module fetches the user crud operations
+export const UserFetchService = async () =>{
+  let data = [];
+
+  try{
+    const response = await fetch("http://localhost:3000/userBase");
+    if(response.ok){
+      const fetchUser = await response.json();
+      data = fetchUser;
+      
+    } else {
+      console.error("Error fetching all users:", response.status, response.statusText);
+      return null;
+    }
+  } catch(error){
+    console.error("Error fetching all users:", error);
+    throw error;
+  };
+
+  //update an user
+  const update = async (userId, updateUser) =>{
     try{
-      const response = await fetch("http://localhost:3000/userBase/"+id, {
-        method : "PUT",
-        headers : {"Content-Type" : "application/json"},
-        body : JSON.stringify(id)
-      }
+      const response = await fetch("http://localhost:3000/userBase"+userId,
+        {
+          method : "PUT",
+          headers : {
+            "Content-Type": "application/json",
+          },
+          body : JSON.stringify(updateUser),
+        }
       );
       if(!response.ok){
-        throw new Error(`HTTP error! Status: ${response.status}`)
+        console.error("Error updating user:", response.status, response.statusText);
+        return null;
       }
-      const data = await response.json();
-      return data;
-
-    } catch{
-      console.error("Error fetching user data id:", error);
-      return null; 
+      //read users after update
+      const updateResponse = await fetch("http://localhost:3000/userBase");
+      if(updateResponse.ok){
+        const updateUsers = await updateResponse.json();
+        data = updateUsers;
+      } else {
+        console.error("Error fetching all users after update:", updateResponse.status, updateResponse.statusText);
+        return null;
+      }
+    } catch(error){
+      console.error("Error updating user:", error);
+      throw error;
     }
-  }
-        
-};
-       /* GetbyId: */
-   
-    /* Update: */
+  };
 
-    /* Post: */
-
-    /* Delete */
+  return{data, update};
+}
