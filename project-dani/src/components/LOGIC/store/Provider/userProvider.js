@@ -9,8 +9,8 @@ export function UserProvider({children}){
   /* handle the async process of userFetchService */
   useEffect(()=>{
     const fetchData = async () =>{
-      const data = await UserFetchService.GetAll();
-      setUser(data)
+      const data = await UserFetchService();
+      setUser(data.data)
     }
     fetchData();
   },[])
