@@ -7,6 +7,7 @@ const Test = () => {
     const [showUsers, setShowUsers] = useState(false)
     return (
         <div>
+            {/* toggle the rendering of the user table component */} 
             <Button variant="primary" className="btn" onClick={()=>setShowUsers(!showUsers)}>Users</Button>
             <Button variant="primary" className="btn">New</Button>
             {
